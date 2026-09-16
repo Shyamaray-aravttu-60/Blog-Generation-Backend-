@@ -18,3 +18,11 @@ class User(BaseModel):
     email : EmailStr
     gender : str
     password: str
+
+class UserResponse(BaseModel):
+    name: str
+    age: int
+    gender: str
+
+class RootMessage(BaseModel):
+    message: str
