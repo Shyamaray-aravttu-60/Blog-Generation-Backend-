@@ -5,9 +5,19 @@ from blogGen_workflow import workflow
 from dotenv import load_dotenv
 from langchain_groq import ChatGroq
 from typing import List
+from fastapi.middleware.cors import CORSMiddleware
 
 
 app = FastAPI(title='FastAPI with AI')
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=False,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 load_dotenv()
 model = ChatGroq(model="openai/gpt-oss-120b")
 
@@ -37,4 +47,5 @@ async def user(new_user:User) -> UserResponse:
 @app.get('/all_users')
 async def all_users()-> List[UserResponse]:
     return lst
+
 
