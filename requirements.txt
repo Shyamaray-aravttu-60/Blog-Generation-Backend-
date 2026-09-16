@@ -7,3 +7,4 @@ uvicorn
 pydantic[email]
 langchain-groq
 python-dotenv
+psycopg2
