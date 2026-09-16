@@ -2,9 +2,12 @@ from langchain_ollama import ChatOllama
 from fastapi import FastAPI ,HTTPException , status
 from valSchems import ChatRequest , ChatResponse , BlogResponse , User
 from blogGen_workflow import workflow
+from dotenv import load_dotenv
+from langchain_groq import ChatGroq
 
 app = FastAPI(title='FastAPI with AI')
-model = ChatOllama(model='qwen3:8b')
+load_dotenv()
+model = ChatGroq(model="openai/gpt-oss-120b")
 
 lst = []
 
