@@ -2,10 +2,10 @@ from pydantic import BaseModel , Field , EmailStr
 from typing import TypedDict
 
 class ChatRequest(BaseModel):
-    text: str
+    prompt: str
 
 class ChatResponse(BaseModel):
-    message: str
+    response: str
 
 class BlogResponse(TypedDict):
     topic:str

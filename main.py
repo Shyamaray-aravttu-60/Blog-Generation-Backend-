@@ -18,8 +18,8 @@ def root():
 
 @app.post('/chat',response_model=ChatResponse)
 async def chat(prompt:ChatRequest):
-    response = model.invoke(prompt.text).content
-    return ChatResponse(message=response)
+    response = model.invoke(prompt.prompt).content
+    return ChatResponse(response=response)
 
 @app.post('/get_blog',response_model=BlogResponse)
 async def get_blog(topic:str):
