@@ -11,6 +11,11 @@ model = ChatGroq(model="openai/gpt-oss-120b")
 
 lst = []
 
+@app.get('/')
+def root():
+    return {'message':'This is demo app built by sham'}
+
+
 @app.post('/chat',response_model=ChatResponse)
 async def chat(prompt:ChatRequest):
     response = model.invoke(prompt.text).content
