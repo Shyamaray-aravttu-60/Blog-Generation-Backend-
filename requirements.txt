@@ -9,3 +9,4 @@ langchain-groq
 python-dotenv
 psycopg2
 sqlmodel
+langsmith
